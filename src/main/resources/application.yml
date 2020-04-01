@@ -1,0 +1,21 @@
+server:
+  port: 8070
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          #让gateway通过服务发现组件找到其他的微服务
+          enabled: true
+  application:
+    name: wii
+wii:
+  # 异构微服务的IP
+  ip: 127.0.0.1
+  # 异构微服务的端口
+  port: 8060
+  # 异构微服务的健康检查URL
+  health-check-url: http://localhost:8060/health.json
